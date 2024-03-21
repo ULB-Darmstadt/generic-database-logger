@@ -1,0 +1,82 @@
+body {
+    display: flex;
+    justify-content: space-between; /* Verteilt den verfügbaren Platz gleichmäßig zwischen den Kind-Elementen */
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#list-container, #detail-container {
+    height: 100vh; /* Setzt die Höhe der Container auf 100% der sichtbaren Fensterhöhe */
+    overflow: auto; /* Ermöglicht Scrollen innerhalb der Container, wenn der Inhalt überläuft */
+    box-sizing: border-box; /* Bezieht Padding und Border in die Breiten- und Höhenberechnung ein */
+}
+
+#list-container {
+    width: 50%; /* Nimmt die Hälfte der Breite ein */
+    padding: 20px;
+    float: none; /* Float wird nicht benötigt, da wir Flexbox verwenden */
+}
+
+#detail-container {
+    width: 50%; /* Nimmt die Hälfte der Breite ein */
+    padding: 20px;
+    float: none; /* Float wird nicht benötigt, da wir Flexbox verwenden */
+}
+
+table {
+    width: calc(100% - 40px); /* Berechnet die Breite unter Berücksichtigung des Padding */
+    margin: 20px 0;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+pre {
+    white-space: pre-wrap;
+    margin: 0;
+}
+
+/* Stil für sticky header */
+th {
+    background-color: #f2f2f2; /* Hintergrundfarbe für bessere Sichtbarkeit des Headers */
+    top: 0; /* Obere Position auf 0 setzen, damit der Header oben bleibt */
+    position: sticky; /* Sticky-Positionierung verwenden */
+    z-index: 2; /* Stellt sicher, dass der Header über anderen Inhalten schwebt */
+}
+
+/* Optional: Schatten für die Kopfzeile hinzufügen, um eine Trennung zum Inhalt zu betonen */
+th::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px; /* Direkt unter der Kopfzeile */
+    width: 100%;
+    border-bottom: 2px solid #ccc; /* Fügt eine Linie/Schatten unter der Kopfzeile hinzu */
+    z-index: -1;
+}
+
+/* JSON style */
+.changed, .deleted, .new-value, .old-value, .unchanged {
+    margin-bottom: 10px; /* Abstand zwischen den verschiedenen Keys */
+}
+.new-value, .old-value, .deleted {
+    padding-left: 20px; /* Einrücken von old_value und new_value */
+}
+.deleted, .old-value {
+    color: red;
+}
+.new-value {
+    color: green;
+}
+.unchanged {
+    color: grey;
+}
